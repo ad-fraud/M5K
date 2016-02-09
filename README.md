@@ -2,7 +2,7 @@
 
 #### more information on the MEDIA5K Challenge here: http://botlab.io/media5k
 
-starter kit for MEDIA5K challenge where the goal is to accurately identify spam sites 
+This is part of the starter kit for MEDIA5K challenge where the goal is to accurately identify spam sites. The remaining part can be found on the link provided above.
 
 First and foremost, the script provided here is intented for research use only and for anything larger than a few thousand sites, you should use Alexa and WOT API access instead.
 
@@ -10,7 +10,4 @@ First and foremost, the script provided here is intented for research use only a
 - list of few IP from a common VPN solution you have access to 
 - a sell-side event log that becomes the sample file
 
-Because the intended use is for large files, this script assumes that you've first run indexer.sh to build an index of your event file/s. 
-
-
-
+Because the intended use is for large files, this script assumes that you've first run indexer.sh to build an index of your event (log) file/s. 
