@@ -1,4 +1,7 @@
 # M5K
+
+#### more information on the MEDIA5K Challenge here: http://botlab.io/media5k
+
 starter kit for MEDIA5K challenge where the goal is to accurately identify spam sites 
 
 First and foremost, the script provided here is intented for research use only and for anything larger than a few thousand sites, you should use Alexa and WOT API access instead.
