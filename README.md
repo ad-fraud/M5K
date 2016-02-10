@@ -11,3 +11,9 @@ First and foremost, the script provided here is intented for research use only a
 - a sell-side event log that becomes the sample file
 
 Because the intended use is for large files, this script assumes that you've first run indexer.sh to build an index of your event (log) file/s. 
+
+Requires: 
+
+- cpan HTML::Strip 
+- Twitter API
+- R
