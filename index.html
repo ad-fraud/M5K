@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>M5k by botlabio</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>M5k</h1>
+        <h2>starter kit for MEDIA5K challenge where the goal is to accurately identify spam sites </h2>
+
+        <section id="downloads">
+          <a href="https://github.com/botlabio/M5K/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/botlabio/M5K/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/botlabio/M5K" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="m5k" class="anchor" href="#m5k" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>M5K</h1>
+
+<h4>
+<a id="more-information-on-the-media5k-challenge-here-httpbotlabiomedia5k" class="anchor" href="#more-information-on-the-media5k-challenge-here-httpbotlabiomedia5k" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>more information on the MEDIA5K Challenge here: <a href="http://botlab.io/media5k">http://botlab.io/media5k</a>
+</h4>
+
+<p>This is part of the starter kit for MEDIA5K challenge where the goal is to accurately identify spam sites. The remaining part can be found on the link provided above.</p>
+
+<p>First and foremost, the script provided here is intented for research use only and for anything else than limited number of sites for early research purpose, please consider using the respective API.</p>
+
+<p>There are two "versions":</p>
+
+<p>1) m5k.sh is the script that are used for generating the media5000 index
+2) signals.sh is the script that can be used for generating 39 different meta-data points about the site</p>
+
+<h2>
+<a id="system-requirements" class="anchor" href="#system-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>system requirements</h2>
+
+<p>Before you can run the scripts, you need to have these installed in the system you are going to run the scripts from</p>
+
+<pre><code>sudo apt-get install numsum
+sudo cpan install HTML::Strip
+sudo apt-get install R
+sudo apt-get upgrade 
+</code></pre>
+
+<p>To run the m5k.sh script with compound scores calculated, you will also need to have access to Twitter API.</p>
+
+<p><a href="https://github.com/sferik/t">https://github.com/sferik/t</a> -&gt; when you do so, it's probably better to do: </p>
+
+<pre><code>sudo apt-get install build-essential
+</code></pre>
+
+<p>In addition I've found that sometimes you have to do:</p>
+
+<pre><code>sudo apt-get update --fix-missing
+</code></pre>
+
+<h2>
+<a id="additional-requirements" class="anchor" href="#additional-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>additional requirements</h2>
+
+<p>For running either of these scripts, you should have: </p>
+
+<ul>
+<li>list of common user-agents that go to m5k.ua file</li>
+<li>list of few IP from a common VPN solution you have access to </li>
+<li>a sell-side event log that becomes the sample file</li>
+</ul>
+
+<h2>
+<a id="combound-scores-m5ksh" class="anchor" href="#combound-scores-m5ksh" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>combound scores (m5k.sh)</h2>
+
+<h6>
+<a id="this-is-the-version-that-is-used-for-calculating-the-latest-scores-in-httpbotlabiomedia5k" class="anchor" href="#this-is-the-version-that-is-used-for-calculating-the-latest-scores-in-httpbotlabiomedia5k" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>this is the version that is used for calculating the latest scores in <a href="http://botlab.io/media5k">http://botlab.io/media5k</a>
+</h6>
+
+<p>While the signals.sh version (below) does not expect you to have a large ad event log, m5k.sh does. So if you don't have such a file, move below to the other version. Or alternatively you could remove the traffic based scores from the script. </p>
+
+<p>Because the intended use is for large files, this script assumes that you've first run indexer.sh to build an index of your event (log) file/s. </p>
+
+<h2>
+<a id="metrics-signalssh" class="anchor" href="#metrics-signalssh" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>metrics (signals.sh)</h2>
+
+<h6>
+<a id="in-addition-to-the-version-weve-used-for-calculation-the-scores-on-the-index-were-also-making-available-a-set-of-direct-signals-from-alexacom-wot-similar-web-and-whois-these-are-explained-below" class="anchor" href="#in-addition-to-the-version-weve-used-for-calculation-the-scores-on-the-index-were-also-making-available-a-set-of-direct-signals-from-alexacom-wot-similar-web-and-whois-these-are-explained-below" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>in addition to the version we've used for calculation the scores on the index, we're also making available a set of direct signals from Alexa.com, WOT, Similar Web and WHOIS. These are explained below</h6>
+
+<pre><code>SW_COUNTRY1     share of traffic for 1st country        percentile
+SW_COUNTRY2     share of traffic for 2nd country        percentile
+SW_COUNTRY3     share of traffic for 3rd country        percentile
+SW_COUNTRY4     share of traffic for 4th country        percentile
+SW_COUNTRY5     share of traffic for 5th country        percentile
+
+SW_SOCIAL1      share of traffic for 1st social site        percentile      
+SW_SOCIAL2      share of traffic for 2nd social site        percentile
+SW_SOCIAL3      share of traffic for 3rd social site        percentile
+SW_SOCIAL4      share of traffic for 4th social site        percentile
+SW_SOCIAL5      share of traffic for 5th social site        percentile
+
+SW_DIRECT       share of traffic of direct traffic      percentile
+SW_REFERRAL     share of traffic of referral traffic        percentile
+SW_EMAIL        share of traffic of email traffic       percentile
+SW_DISPLAY      share of traffic of display ad traffic      percentile
+SW_SEARCH       share of traffic of search traffic      percentile
+SW_ORGANICSEARCH    share of traffic of organic search traffic  percentile
+SW_PAIDSEARCH       share of traffic of paid search traffic     percentile
+SW_BOUNCE       share of traffic of bounced traffic     percentile
+
+ALEXA_TOPCOUNTRIES  share of top5 countries of all traffic      percentile
+ALEXA_BOUNCERATE    share of traffic of bounced traffic     percentile
+ALEXA_SEARCHVISITS  share of traffic of search traffic      percentile
+ALEXA_RANK      global rank                 rank
+ALEXA_PAGEVIEWS     average pageviews               decimal
+ALEXA_TIMEONSITE    average time on site                time
+ALEXA_TOPKEYWORDS   share of top5 keywords of traffic       percentile
+ALEXA_INLINKS       number of links leading to the site     integer
+ALEXA_LOADSPEED     time it takes on average to load the page   time
+ALEXA_MALES     affinity with male audiences            category
+ALEXA_FEMALES       affinity with female audiences          category
+
+WOT_TRUST       user trust on the site              integer
+WOT_CHILDSAFETY     user reviewed childsafety of the site       integer     
+WOT_VOTES       number of votes the site received       integer
+
+WHOIS_PRIVACY       the domain uses whois privacy           boolean
+WHOIS_YEARS     number of years from creation of domain     integer
+</code></pre>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
