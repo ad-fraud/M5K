@@ -4,11 +4,18 @@
 
 This is part of the starter kit for MEDIA5K challenge where the goal is to accurately identify spam sites. The remaining part can be found on the link provided above.
 
-First and foremost, the script provided here is intented for research use only and for anything larger than a few thousand sites, you should use Alexa and WOT API access instead.
+First and foremost, the script provided here is intented for research use only and for anything else than limited number of sites for early research purpose, please consider using the respective API.
 
-- list of common user-agents that go to m5k.ua file
-- list of few IP from a common VPN solution you have access to 
-- a sell-side event log that becomes the sample file
+There are two "versions":
+
+1) m5k.sh is the script that are used for generating the media5000 index
+2) signals.sh is the script that can be used for generating 39 different meta-data points about the site
+
+For running either of these scripts, you should have: 
+
+ - list of common user-agents that go to m5k.ua file
+ - list of few IP from a common VPN solution you have access to 
+ - a sell-side event log that becomes the sample file
 
 Because the intended use is for large files, this script assumes that you've first run indexer.sh to build an index of your event (log) file/s. 
 
