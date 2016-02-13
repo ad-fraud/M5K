@@ -18,46 +18,47 @@ Requires:
 - Twitter API
 - R
 
-# metrics
+# metrics (signals.sh)
+###### in addition to the version we've used for calculation the scores on the index, we're also making available a set of direct signals from Alexa.com, WOT, Similar Web and WHOIS. These are explained below
 	
-	SW_COUNTRY1
-	SW_COUNTRY2
-	SW_COUNTRY3
-	SW_COUNTRY4
-	SW_COUNTRY5
+	SW_COUNTRY1		share of traffic for 1st country		percentile
+	SW_COUNTRY2		share of traffic for 2nd country		percentile
+	SW_COUNTRY3		share of traffic for 3rd country		percentile
+	SW_COUNTRY4		share of traffic for 4th country		percentile
+	SW_COUNTRY5		share of traffic for 5th country		percentile
 
-	SW_SOCIAL1
-	SW_SOCIAL2
-	SW_SOCIAL3
-	SW_SOCIAL4
-	SW_SOCIAL5
+	SW_SOCIAL1		share of traffic for 1st social site		percentile		
+	SW_SOCIAL2		share of traffic for 2nd social site		percentile
+	SW_SOCIAL3		share of traffic for 3rd social site		percentile
+	SW_SOCIAL4		share of traffic for 4th social site		percentile
+	SW_SOCIAL5		share of traffic for 5th social site		percentile
 
-	SW_DIRECT
-	SW_REFERRAL
-	SW_EMAIL
-	SW_DISPLAY
-	SW_SEARCH
-	SW_ORGANICSEARCH
-	SW_PAIDSEARCH
-	SW_BOUNCE
+	SW_DIRECT		share of traffic of direct traffic		percentile
+	SW_REFERRAL		share of traffic of referral traffic		percentile
+	SW_EMAIL		share of traffic of email traffic		percentile
+	SW_DISPLAY		share of traffic of display ad traffic		percentile
+	SW_SEARCH		share of traffic of search traffic		percentile
+	SW_ORGANICSEARCH	share of traffic of organic search traffic	percentile
+	SW_PAIDSEARCH		share of traffic of paid search traffic		percentile
+	SW_BOUNCE		share of traffic of bounced traffic		percentile
 
-	ALEXA_TOPCOUNTRIES
-	ALEXA_BOUNCERATE
-	ALEXA_SEARCHVISITS
-	ALEXA_RANK
-	ALEXA_PAGEVIEWS
-	ALEXA_TIMEONSITE
-	ALEXA_TOPKEYWORDS
-	ALEXA_INLINKS
-	ALEXA_LOADSPEED
-	ALEXA_MALES
-	ALEXA_FEMALES
+	ALEXA_TOPCOUNTRIES	share of top5 countries of all traffic		percentile
+	ALEXA_BOUNCERATE	share of traffic of bounced traffic		percentile
+	ALEXA_SEARCHVISITS	share of traffic of search traffic		percentile
+	ALEXA_RANK		global rank					rank
+	ALEXA_PAGEVIEWS		average pageviews				decimal
+	ALEXA_TIMEONSITE	average time on site				time
+	ALEXA_TOPKEYWORDS	share of top5 keywords of traffic		percentile
+	ALEXA_INLINKS		number of links leading to the site		integer
+	ALEXA_LOADSPEED		time it takes on average to load the page	time
+	ALEXA_MALES		affinity with male audiences			category
+	ALEXA_FEMALES		affinity with female audiences			category
 
-	WOT_TRUST
-	WOT_CHILDSAFETY
-	WOT_VOTES
+	WOT_TRUST		user trust on the site				integer
+	WOT_CHILDSAFETY		user reviewed childsafety of the site		integer		
+	WOT_VOTES		number of votes the site received		integer
 
-	WHOIS_PRIVAC
-	WHOIS_YEARS
+	WHOIS_PRIVACY		the domain uses whois privacy			boolean
+	WHOIS_YEARS		number of years from creation of domain		integer
 
 
