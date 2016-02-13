@@ -11,6 +11,28 @@ There are two "versions":
 1) m5k.sh is the script that are used for generating the media5000 index
 2) signals.sh is the script that can be used for generating 39 different meta-data points about the site
 
+
+## system requirements
+
+Before you can run the scripts, you need to have these installed in the system you are going to run the scripts from
+
+    sudo apt-get install numsum
+    sudo cpan install HTML::Strip
+    sudo apt-get install R
+    sudo apt-get upgrade 
+    
+To run the m5k.sh script with compound scores calculated, you will also need to have access to Twitter API.
+
+https://github.com/sferik/t -> when you do so, it's probably better to do: 
+
+    sudo apt-get install build-essential
+
+In addition I've found that sometimes you have to do:
+
+    sudo apt-get update --fix-missing
+
+## additional requirements
+
 For running either of these scripts, you should have: 
 
  - list of common user-agents that go to m5k.ua file
@@ -19,13 +41,10 @@ For running either of these scripts, you should have:
 
 Because the intended use is for large files, this script assumes that you've first run indexer.sh to build an index of your event (log) file/s. 
 
-Requires: 
 
-- cpan HTML::Strip 
-- Twitter API
-- R
 
-# metrics (signals.sh)
+
+## metrics (signals.sh)
 ###### in addition to the version we've used for calculation the scores on the index, we're also making available a set of direct signals from Alexa.com, WOT, Similar Web and WHOIS. These are explained below
 	
 	SW_COUNTRY1		share of traffic for 1st country		percentile
