@@ -39,9 +39,13 @@ For running either of these scripts, you should have:
  - list of few IP from a common VPN solution you have access to 
  - a sell-side event log that becomes the sample file
 
+
+## combound scores (m5k.sh)
+###### this is the version that is used for calculating the latest scores in http://botlab.io/media5k
+
+While the signals.sh version (below) does not expect you to have a large ad event log, m5k.sh does. So if you don't have such a file, move below to the other version. Or alternatively you could remove the traffic based scores from the script. 
+
 Because the intended use is for large files, this script assumes that you've first run indexer.sh to build an index of your event (log) file/s. 
-
-
 
 
 ## metrics (signals.sh)
