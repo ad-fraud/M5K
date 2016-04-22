@@ -43,52 +43,14 @@ For running either of these scripts, you should have:
 ## combound scores (m5k.sh)
 ###### this is the version that is used for calculating the latest scores in http://botlab.io/media5k
 
-While the signals.sh version (below) does not expect you to have a large ad event log, m5k.sh does. So if you don't have such a file, move below to the other version. Or alternatively you could remove the traffic based scores from the script. 
+This version is made for someone with access to a large event log file.
 
-Because the intended use is for large files, this script assumes that you've first run indexer.sh to build an index of your event (log) file/s. 
+If you don't have access to such a log, but want to calculate these scores, simply comment out the bits that refer to the log file. 
 
+Because the intended use is for large files, this script assumes that you've first run indexer.sh to build an index of your event (log) file/s. If you don't do that, and are running out of a large file >100M rows on a regular machine, it will take very long to compute. 
 
-## metrics (signals.sh)
-###### in addition to the version we've used for calculation the scores on the index, we're also making available a set of direct signals from Alexa.com, WOT, Similar Web and WHOIS. These are explained below
-	
-	SW_COUNTRY1		share of traffic for 1st country		percentile
-	SW_COUNTRY2		share of traffic for 2nd country		percentile
-	SW_COUNTRY3		share of traffic for 3rd country		percentile
-	SW_COUNTRY4		share of traffic for 4th country		percentile
-	SW_COUNTRY5		share of traffic for 5th country		percentile
+If you don't care about the log-file part, maybe you want to look at DNsignals scipts instead and compute your own scores based on the direct signals.
 
-	SW_SOCIAL1		share of traffic for 1st social site		percentile		
-	SW_SOCIAL2		share of traffic for 2nd social site		percentile
-	SW_SOCIAL3		share of traffic for 3rd social site		percentile
-	SW_SOCIAL4		share of traffic for 4th social site		percentile
-	SW_SOCIAL5		share of traffic for 5th social site		percentile
+https://github.com/mikkokotila/DNSignal/blob/master/README.md
 
-	SW_DIRECT		share of traffic of direct traffic		percentile
-	SW_REFERRAL		share of traffic of referral traffic		percentile
-	SW_EMAIL		share of traffic of email traffic		percentile
-	SW_DISPLAY		share of traffic of display ad traffic		percentile
-	SW_SEARCH		share of traffic of search traffic		percentile
-	SW_ORGANICSEARCH	share of traffic of organic search traffic	percentile
-	SW_PAIDSEARCH		share of traffic of paid search traffic		percentile
-	SW_BOUNCE		share of traffic of bounced traffic		percentile
-
-	ALEXA_TOPCOUNTRIES	share of top5 countries of all traffic		percentile
-	ALEXA_BOUNCERATE	share of traffic of bounced traffic		percentile
-	ALEXA_SEARCHVISITS	share of traffic of search traffic		percentile
-	ALEXA_RANK		global rank					rank
-	ALEXA_PAGEVIEWS		average pageviews				decimal
-	ALEXA_TIMEONSITE	average time on site				time
-	ALEXA_TOPKEYWORDS	share of top5 keywords of traffic		percentile
-	ALEXA_INLINKS		number of links leading to the site		integer
-	ALEXA_LOADSPEED		time it takes on average to load the page	time
-	ALEXA_MALES		affinity with male audiences			category
-	ALEXA_FEMALES		affinity with female audiences			category
-
-	WOT_TRUST		user trust on the site				integer
-	WOT_CHILDSAFETY		user reviewed childsafety of the site		integer		
-	WOT_VOTES		number of votes the site received		integer
-
-	WHOIS_PRIVACY		the domain uses whois privacy			boolean
-	WHOIS_YEARS		number of years from creation of domain		integer
-
-
+NOTE: DNsignals have less requirements, fetches more direct signals but DOES NOT perform any of the calculations m5k.sh does.
