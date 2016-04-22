@@ -48,8 +48,8 @@ while read DOMAIN
 	VOTES=$(grep -e "span itemprop=" wot.temp | grep votes | cut -d '>' -f2 | cut -d '<' -f1)
 	rm wot.temp
 					
-	USER_AGENT=$(shuf indexer.ua | head -1)
-	PROXY=$(shuf indexer.proxy | head -1)
+	USER_AGENT=$(shuf m5k.ua | head -1)
+	PROXY=$(shuf m5k.proxy | head -1)
 	sudo wget -O alexa.temp --user-agent="$USER_AGENT" http://www.alexa.com/siteinfo/"$DOMAIN" -q --proxy-user "username" --proxy-password "password" use_proxy=yes -e http_proxy="$PROXY" -T 3 --tries=2
 	BOUNCE=$(grep -e "%  " alexa.temp | colrm 10 | tr -d ":[[:blank:]]:" | sed "s/%//" | head -1)
 	SEARCH=$(grep -e "%  " alexa.temp | colrm 10 | tr -d ":[[:blank:]]:" | sed "s/%//" | tail -1)
